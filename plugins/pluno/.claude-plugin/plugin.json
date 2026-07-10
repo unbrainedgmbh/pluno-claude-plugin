@@ -1,0 +1,18 @@
+{
+  "name": "pluno",
+  "description": "Delegate browser tasks from Claude to Pluno with explicit user approval.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Pluno"
+  },
+  "homepage": "https://pluno.ai",
+  "repository": "https://github.com/unbrainedgmbh/pluno-claude-plugin",
+  "keywords": [
+    "browser",
+    "automation",
+    "productivity"
+  ],
+  "skills": [
+    "./skills/pluno-browser-tasks"
+  ]
+}

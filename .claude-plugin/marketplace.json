@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "pluno-plugins",
+  "owner": {
+    "name": "Pluno"
+  },
+  "description": "Official Pluno plugins for Claude",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "pluno",
+      "source": "./plugins/pluno",
+      "description": "Delegate browser tasks from Claude to Pluno with explicit user approval.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": [
+        "browser",
+        "automation",
+        "productivity"
+      ]
+    }
+  ]
+}
