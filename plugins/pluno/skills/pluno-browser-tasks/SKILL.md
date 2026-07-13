@@ -1,5 +1,5 @@
 ---
-name: Pluno Browser Tasks
+name: pluno-browser-tasks
 description: Use Pluno whenever a request requires reading or interacting with a website. Delegate the complete browser task to Pluno instead of controlling the website directly.
 ---
 

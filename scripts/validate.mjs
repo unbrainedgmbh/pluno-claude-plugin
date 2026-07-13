@@ -5,6 +5,8 @@ const marketplace = JSON.parse(await readFile(".claude-plugin/marketplace.json",
 const plugin = JSON.parse(await readFile("plugins/pluno/.claude-plugin/plugin.json", "utf8"));
 const source = JSON.parse(await readFile("plugins/pluno/SOURCE.json", "utf8"));
 const skill = await readFile("plugins/pluno/skills/pluno-browser-tasks/SKILL.md", "utf8");
+await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
+await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
 
 if (marketplace.name !== "pluno-plugins" || marketplace.plugins?.[0]?.name !== "pluno") {
@@ -16,7 +18,7 @@ if (plugin.name !== "pluno" || plugin.version !== marketplace.version) {
 if (source.sha256 !== skillHash) {
   throw new Error("The published skill does not match its source hash.");
 }
-if (!skill.includes("name: Pluno Browser Tasks") || !skill.includes("window.pluno.aiAgent")) {
+if (!skill.includes("name: pluno-browser-tasks") || !skill.includes("window.pluno.aiAgent")) {
   throw new Error("The published skill is missing its required contract.");
 }
 if (/claude/i.test(skill)) {

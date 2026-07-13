@@ -5,13 +5,14 @@
     "name": "Pluno"
   },
   "description": "Official Pluno plugins for Claude",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "plugins": [
     {
       "name": "pluno",
+      "displayName": "Pluno",
       "source": "./plugins/pluno",
       "description": "Delegate browser tasks from Claude to Pluno with explicit user approval.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "productivity",
       "tags": [
         "browser",
