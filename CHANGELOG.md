@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- Improve automatic skill selection with a verb-led name, comprehensive browser-intent metadata, and concrete routing examples.
+
 ## 1.0.2
 
 - Start delegated browser tasks without a separate Pluno approval step.

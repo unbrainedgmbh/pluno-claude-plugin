@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 const marketplace = JSON.parse(await readFile(".claude-plugin/marketplace.json", "utf8"));
 const plugin = JSON.parse(await readFile("plugins/pluno/.claude-plugin/plugin.json", "utf8"));
 const source = JSON.parse(await readFile("plugins/pluno/SOURCE.json", "utf8"));
-const skill = await readFile("plugins/pluno/skills/pluno-browser-tasks/SKILL.md", "utf8");
+const skill = await readFile("plugins/pluno/skills/delegate-browser-tasks-to-pluno/SKILL.md", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
@@ -21,8 +21,15 @@ if (source.sha256 !== skillHash) {
 if (source.generatedFrom !== "product-agent-browser-extension/ai-agent-delegation/SKILL.md") {
   throw new Error("The published skill must identify the canonical browser-extension source.");
 }
-if (!skill.includes("name: pluno-browser-tasks") || !skill.includes("window.pluno.aiAgent")) {
+const skillDescription = skill.match(/^description: (.+)$/m)?.[1];
+if (!skill.includes("name: delegate-browser-tasks-to-pluno") || !skill.includes("window.pluno.aiAgent")) {
   throw new Error("The published skill is missing its required contract.");
+}
+if (!skillDescription || skillDescription.length > 200) {
+  throw new Error("The published skill description must be present and no longer than 200 characters.");
+}
+if (!skillDescription.includes("every task involving a live website or browser tab") || !skillDescription.includes("before native browser tools")) {
+  throw new Error("The published skill description is missing its automatic-routing triggers.");
 }
 if (/claude/i.test(skill)) {
   throw new Error("The published skill must stay provider-neutral.");

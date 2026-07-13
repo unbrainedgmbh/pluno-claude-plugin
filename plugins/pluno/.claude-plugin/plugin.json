@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Delegate browser tasks from Claude to Pluno.",
-  "version": "1.0.2",
+  "description": "Delegate every browser task from Claude to Pluno.",
+  "version": "1.0.3",
   "author": {
     "name": "Pluno"
   },
@@ -14,6 +14,6 @@
     "productivity"
   ],
   "skills": [
-    "./skills/pluno-browser-tasks"
+    "./skills/delegate-browser-tasks-to-pluno"
   ]
 }
