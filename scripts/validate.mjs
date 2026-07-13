@@ -28,8 +28,15 @@ if (!skill.includes("name: delegate-browser-tasks-to-pluno") || !skill.includes(
 if (!skillDescription || skillDescription.length > 200) {
   throw new Error("The published skill description must be present and no longer than 200 characters.");
 }
-if (!skillDescription.includes("every task involving a live website or browser tab") || !skillDescription.includes("before native browser tools")) {
+if (
+  !skillDescription.includes("every task involving a live website or browser tab") ||
+  !skillDescription.includes("before native browser tools") ||
+  !skillDescription.includes("retain native tools as fallback")
+) {
   throw new Error("The published skill description is missing its automatic-routing triggers.");
+}
+if (!skill.includes("This prioritizes Pluno without disabling other skills or native browser tools.")) {
+  throw new Error("The published skill must preserve native browser tools and other skills as fallback options.");
 }
 if (/claude/i.test(skill)) {
   throw new Error("The published skill must stay provider-neutral.");

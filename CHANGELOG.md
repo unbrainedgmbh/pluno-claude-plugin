@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.121
+## 1.0.122
 
-- Improve automatic skill selection with a verb-led name, comprehensive browser-intent metadata, and concrete routing examples.
+- Prefer Pluno first for browser tasks while retaining native browser tools as a fallback when Pluno cannot complete the task.
 
 ## 1.0.2
 
