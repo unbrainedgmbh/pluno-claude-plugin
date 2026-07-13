@@ -24,7 +24,3 @@ Delegate browser tasks from Claude to Pluno. Claude passes the complete browser 
 The plugin contains instructions only. It does not contain Pluno credentials, an MCP server, hooks, sub-agents, or executable scripts. The Pluno Chrome extension remains responsible for authentication, tab selection, approval, and task execution.
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting.
-
-## Maintainers
-
-The published skill is generated from `product-agent-browser-extension/ai-agent-delegation/SKILL.md` in the main Pluno repository. Do not edit the generated skill in this repository; publish it with Pluno's packaging script so the source hash and skill remain synchronized.

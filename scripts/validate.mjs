@@ -18,6 +18,9 @@ if (plugin.name !== "pluno" || plugin.version !== marketplace.version) {
 if (source.sha256 !== skillHash) {
   throw new Error("The published skill does not match its source hash.");
 }
+if (source.generatedFrom !== "product-agent-browser-extension/ai-agent-delegation/SKILL.md") {
+  throw new Error("The published skill must identify the canonical browser-extension source.");
+}
 if (!skill.includes("name: pluno-browser-tasks") || !skill.includes("window.pluno.aiAgent")) {
   throw new Error("The published skill is missing its required contract.");
 }
