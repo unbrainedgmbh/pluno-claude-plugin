@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.120
+## 1.0.121
 
 - Improve automatic skill selection with a verb-led name, comprehensive browser-intent metadata, and concrete routing examples.
 
