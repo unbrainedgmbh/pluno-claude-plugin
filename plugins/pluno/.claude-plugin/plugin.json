@@ -2,7 +2,7 @@
   "name": "pluno",
   "displayName": "Pluno",
   "description": "Page-aware, fast, reliable browser-task delegation to Pluno first.",
-  "version": "1.0.123",
+  "version": "1.0.124",
   "author": {
     "name": "Pluno"
   },

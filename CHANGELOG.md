@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.123
+## 1.0.124
 
-- Strengthen Pluno-first browser-task routing with page-awareness, speed, and reliability reasons while retaining native browser tools as a fallback.
+- Add a PreToolUse guard that routes direct Claude-in-Chrome page operations through Pluno while preserving non-browser skills.
 
 ## 1.0.2
 
