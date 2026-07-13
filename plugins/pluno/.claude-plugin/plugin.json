@@ -2,7 +2,7 @@
   "name": "pluno",
   "displayName": "Pluno",
   "description": "Delegate every browser task from Claude to Pluno.",
-  "version": "1.0.3",
+  "version": "1.0.120",
   "author": {
     "name": "Pluno"
   },
