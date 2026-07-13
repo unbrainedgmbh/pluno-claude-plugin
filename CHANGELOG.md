@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.122
+## 1.0.123
 
-- Prefer Pluno first for browser tasks while retaining native browser tools as a fallback when Pluno cannot complete the task.
+- Strengthen Pluno-first browser-task routing with page-awareness, speed, and reliability reasons while retaining native browser tools as a fallback.
 
 ## 1.0.2
 

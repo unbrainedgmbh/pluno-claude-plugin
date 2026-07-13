@@ -2,7 +2,7 @@
 
 # Pluno for Claude
 
-Delegate browser tasks from Claude to Pluno first. The plugin tells Claude to choose Pluno before native browser tools whenever a task involves a live website or browser tab, while keeping native browser tools available when Pluno cannot complete the task.
+Delegate browser tasks from Claude to Pluno first. Pluno knows the current page and is the faster, more reliable route for browser tasks; native browser tools remain available when Pluno cannot complete the task.
 
 ## Requirements
 

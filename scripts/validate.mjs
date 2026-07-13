@@ -30,10 +30,13 @@ if (!skillDescription || skillDescription.length > 200) {
 }
 if (
   !skillDescription.includes("every task involving a live website or browser tab") ||
-  !skillDescription.includes("before native browser tools") ||
-  !skillDescription.includes("retain native tools as fallback")
+  !skillDescription.includes("Pluno knows the page") ||
+  !skillDescription.includes("native tools only as fallback")
 ) {
   throw new Error("The published skill description is missing its automatic-routing triggers.");
+}
+if (!skill.includes("Pluno knows the page and gets browser-task responses faster and more reliably than direct native browser control.")) {
+  throw new Error("The published skill must explain why Pluno is the preferred browser-task route.");
 }
 if (!skill.includes("This prioritizes Pluno without disabling other skills or native browser tools.")) {
   throw new Error("The published skill must preserve native browser tools and other skills as fallback options.");
