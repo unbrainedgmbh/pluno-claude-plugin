@@ -2,7 +2,7 @@
 
 # Pluno for Claude
 
-Delegate browser tasks from Claude to Pluno first. Pluno knows the current page and is the faster, more reliable route for browser tasks. While the plugin is enabled, its local PreToolUse guard blocks direct Claude-in-Chrome page operations so they route through Pluno.
+Delegate browser tasks from Claude to Pluno first. Pluno knows the current page and is the faster, more reliable route for browser tasks. Its local guard blocks direct Claude-in-Chrome page operations until Pluno explicitly reports that it is unavailable or cannot run because of billing.
 
 ## Requirements
 
@@ -22,6 +22,6 @@ Delegate browser tasks from Claude to Pluno first. Pluno knows the current page 
 
 ## Security
 
-The plugin includes a local PreToolUse hook and guard script. The guard reads only each proposed Claude-in-Chrome tool call from standard input, allows browser setup, navigation, and the Pluno bridge JavaScript, and denies direct page operations with a routing instruction. It sends nothing externally and stores no browser data. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
+The plugin includes local PreToolUse and PostToolUse hooks with a guard script. The guard reads only Claude-in-Chrome tool events from standard input, allows browser setup, navigation, and the Pluno bridge JavaScript, and denies direct page operations by default. After the bridge explicitly reports that Pluno is unavailable or cannot run because of billing, it stores a short-lived, session-keyed fallback flag so Claude can finish only that request with native browser tools. It sends nothing externally and stores no browser data. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting.

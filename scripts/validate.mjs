@@ -38,7 +38,7 @@ if (!skillDescription || skillDescription.length > 200) {
 if (
   !skillDescription.includes("every task involving a live website or browser tab") ||
   !skillDescription.includes("Pluno knows the page") ||
-  !skillDescription.includes("direct native page control is blocked")
+  !skillDescription.includes("native control unlocks only when Pluno is unavailable")
 ) {
   throw new Error("The published skill description is missing its automatic-routing triggers.");
 }

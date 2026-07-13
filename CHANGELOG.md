@@ -1,8 +1,8 @@
 # Changelog
 
-## 1.0.124
+## 1.0.125
 
-- Add a PreToolUse guard that routes direct Claude-in-Chrome page operations through Pluno while preserving non-browser skills.
+- Add a guarded native-browser escape route when Pluno reports an availability or billing failure during the current request.
 
 ## 1.0.2
 
