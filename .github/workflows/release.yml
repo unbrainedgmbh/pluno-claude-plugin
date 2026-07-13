@@ -1,0 +1,53 @@
+name: Release plugin marketplace
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate marketplace
+        run: node scripts/validate.mjs
+      - name: Read generated version
+        id: version
+        run: |
+          VERSION=$(node -e 'console.log(require("./.claude-plugin/marketplace.json").version)')
+          echo "value=$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Check release version
+        id: release
+        env:
+          PREVIOUS_SHA: ${{ github.event.before }}
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          PREVIOUS_VERSION=$(git show "$PREVIOUS_SHA:.claude-plugin/marketplace.json" 2>/dev/null | node -e 'let source = ""; process.stdin.on("data", (chunk) => source += chunk); process.stdin.on("end", () => console.log(source ? JSON.parse(source).version : ""))')
+          if [ "$VERSION" = "$PREVIOUS_VERSION" ]; then
+            echo "should_release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git rev-parse --verify --quiet "refs/tags/v$VERSION" >/dev/null; then
+            echo "Plugin version $VERSION is already released; every published skill update needs a new version." >&2
+            exit 1
+          fi
+          echo "should_release=true" >> "$GITHUB_OUTPUT"
+      - name: Create version tag and GitHub release
+        if: steps.release.outputs.should_release == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.value }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "v$VERSION" -m "Pluno Claude plugin v$VERSION"
+          git push origin "v$VERSION"
+          gh release create "v$VERSION" --title "Pluno Claude plugin v$VERSION" --generate-notes
