@@ -2,7 +2,7 @@
 
 # Pluno for Claude
 
-Delegate browser tasks from Claude to Pluno. Claude passes the complete browser task to the Pluno Chrome extension, you review the exact request, and Pluno completes the work in the active website.
+Delegate browser tasks from Claude to Pluno. Claude passes the complete browser task to the Pluno Chrome extension, and Pluno starts working immediately in the active website.
 
 ## Requirements
 
@@ -16,11 +16,11 @@ Delegate browser tasks from Claude to Pluno. Claude passes the complete browser 
 2. Select **+ → Add marketplace**.
 3. Choose **Add from a repository** and enter `https://github.com/unbrainedgmbh/pluno-claude-plugin`.
 4. Install **Pluno** from the marketplace.
-5. Open a normal website and ask Claude to complete a browser task.
-6. Review the exact request shown by Pluno before allowing it to run.
+5. Open a normal website in Chrome.
+6. In Claude, ask it to complete a browser task with Pluno.
 
 ## Security
 
-The plugin contains instructions only. It does not contain Pluno credentials, an MCP server, hooks, sub-agents, or executable scripts. The Pluno Chrome extension remains responsible for authentication, tab selection, approval, and task execution.
+The plugin contains instructions only. It does not contain Pluno credentials, an MCP server, hooks, sub-agents, or executable scripts. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting.

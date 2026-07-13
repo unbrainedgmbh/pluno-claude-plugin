@@ -2,6 +2,6 @@
 
 # Pluno
 
-This plugin adds the **Pluno Browser Tasks** skill to Claude. It requires the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) and never approves a delegated task on the user's behalf.
+This plugin adds the **Pluno Browser Tasks** skill to Claude. It requires the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi). Delegated tasks start immediately in the active website.
 
 The skill in this repository is a generated, byte-for-byte copy of the canonical skill in the Pluno browser-extension source. Do not edit it here.

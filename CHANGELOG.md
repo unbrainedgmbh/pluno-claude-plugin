@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Start delegated browser tasks without a separate Pluno approval step.
+
 ## 1.0.1
 
 - Add the official Pluno Chrome Web Store installation link.

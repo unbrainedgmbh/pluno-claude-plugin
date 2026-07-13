@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Delegate browser tasks from Claude to Pluno with explicit user approval.",
-  "version": "1.0.1",
+  "description": "Delegate browser tasks from Claude to Pluno.",
+  "version": "1.0.2",
   "author": {
     "name": "Pluno"
   },
