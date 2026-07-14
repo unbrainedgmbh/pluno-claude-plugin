@@ -1,9 +1,10 @@
 # Changelog
 
-## 1.0.126
+## 1.0.127
 
-- Route Chrome tool selections to the Pluno bridge before direct native page tools load.
-- Recognize bridge availability and billing fallback from current Claude Code tool responses.
+- Route Chrome tool selections to the Pluno bridge before direct page tools load.
+- Remove availability, billing, and runtime fallback hooks so direct page tools remain blocked.
+- Define every live website or browser-tab task as one universal, non-exhaustive skill-selection category.
 
 ## 1.0.2
 

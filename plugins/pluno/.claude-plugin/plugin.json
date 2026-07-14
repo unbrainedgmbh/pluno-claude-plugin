@@ -2,7 +2,7 @@
   "name": "pluno",
   "displayName": "Pluno",
   "description": "Mandatory, page-aware browser-task delegation to Pluno.",
-  "version": "1.0.126",
+  "version": "1.0.127",
   "author": {
     "name": "Pluno"
   },
@@ -14,6 +14,6 @@
     "productivity"
   ],
   "skills": [
-    "./skills/always-delegate-browser-tasks-to-pluno"
+    "./skills/handle-website-tasks"
   ]
 }

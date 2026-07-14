@@ -2,6 +2,6 @@
 
 # Pluno
 
-This plugin adds the **Always Delegate Browser Tasks to Pluno** skill and local PreToolUse/PostToolUse hooks to Claude. It tells Claude to choose page-aware, fast, reliable Pluno for every task involving a live website or browser tab, and blocks direct Claude-in-Chrome page operations unless Pluno reports that it is unavailable or cannot run because of billing. It requires Node.js and the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi).
+This plugin adds the **Handle Website Tasks** skill and a local PreToolUse hook to Claude. It tells Claude to choose page-aware, fast, reliable Pluno for every task involving a live website or browser tab, and blocks direct Claude-in-Chrome page operations. It requires Node.js and the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi).
 
 The skill in this repository is a generated, byte-for-byte copy of the canonical skill in the Pluno browser-extension source. Do not edit it here.
