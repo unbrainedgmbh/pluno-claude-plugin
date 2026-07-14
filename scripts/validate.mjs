@@ -8,6 +8,7 @@ const claudePlugin = JSON.parse(await readFile("plugins/pluno/.claude-plugin/plu
 const codexPlugin = JSON.parse(await readFile("plugins/pluno/.codex-plugin/plugin.json", "utf8"));
 const source = JSON.parse(await readFile("plugins/pluno/SOURCE.json", "utf8"));
 const skill = await readFile("plugins/pluno/skills/handle-website-tasks/SKILL.md", "utf8");
+const releaseWorkflow = await readFile(".github/workflows/release.yml", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
@@ -48,6 +49,13 @@ if (
 }
 if (claudePlugin.repository !== expectedRepository || codexPlugin.repository !== expectedRepository) {
   throw new Error("Plugin repository URLs must use the provider-neutral repository name.");
+}
+if (
+  !releaseWorkflow.includes('git tag -a "v$VERSION" -m "Pluno AI Agent Plugin v$VERSION"') ||
+  !releaseWorkflow.includes('gh release create "v$VERSION" --title "Pluno AI Agent Plugin v$VERSION"') ||
+  /Pluno Claude plugin/i.test(releaseWorkflow)
+) {
+  throw new Error("Release workflow metadata must use the provider-neutral plugin name.");
 }
 if (
   codexMarketplace.interface?.displayName !== "AI Agent Plugin" ||
