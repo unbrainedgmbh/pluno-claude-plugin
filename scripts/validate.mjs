@@ -7,6 +7,7 @@ const source = JSON.parse(await readFile("plugins/pluno/SOURCE.json", "utf8"));
 const skill = await readFile("plugins/pluno/skills/handle-website-tasks/SKILL.md", "utf8");
 const hook = await readFile("plugins/pluno/hooks/hooks.json", "utf8");
 const guard = await readFile("plugins/pluno/scripts/guard-claude-in-chrome.mjs", "utf8");
+const hookConfig = JSON.parse(hook);
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
@@ -76,14 +77,13 @@ if (/(?:native|fallback|unavailable)/i.test(skill)) {
   throw new Error("The published skill must only guide Pluno browser-task delegation.");
 }
 if (
-  !hook.includes('"ToolSearch"') ||
-  !hook.includes('"mcp__claude-in-chrome__.*"') ||
+  Object.keys(hookConfig.hooks ?? {}).length !== 0 ||
   !guard.includes('updatedInput:') ||
   !guard.includes('permissionDecision: "deny"') ||
   /"(?:PostToolUse|UserPromptSubmit|SessionEnd)"/.test(hook) ||
   /NativeFallback|FALLBACK_STATE|tool_response/.test(guard)
 ) {
-  throw new Error("The published PreToolUse hook and guard are missing their routing contract.");
+  throw new Error("The published plugin must retain its guard while hook registration is disabled.");
 }
 if (/claude/i.test(skill)) {
   throw new Error("The published skill must stay provider-neutral.");

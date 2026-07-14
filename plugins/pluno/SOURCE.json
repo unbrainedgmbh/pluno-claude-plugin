@@ -5,7 +5,7 @@
   },
   "hook": {
     "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/hooks.json",
-    "sha256": "f622bc5990dc09ec50bbeffb130d1821cfe6188332ded6eac91a7d63fd5425dd"
+    "sha256": "84bece0aabe9ae033e9b8b4eb01bf109c6ba99cee1f9d66073581b10935d922b"
   },
   "guard": {
     "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/guard-claude-in-chrome.mjs",

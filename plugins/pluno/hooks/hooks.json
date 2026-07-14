@@ -1,27 +1,4 @@
 {
-  "description": "Always route Claude-in-Chrome tool selection and page operations through Pluno.",
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "ToolSearch",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/guard-claude-in-chrome.mjs\"",
-            "timeout": 5
-          }
-        ]
-      },
-      {
-        "matcher": "mcp__claude-in-chrome__.*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/guard-claude-in-chrome.mjs\"",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  }
+  "description": "The Pluno guard is retained but hook registration is disabled for skill-only routing tests.",
+  "hooks": {}
 }

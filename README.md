@@ -2,13 +2,12 @@
 
 # Pluno for Claude
 
-Always delegate browser tasks from Claude to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Its local guard blocks direct Claude-in-Chrome page operations.
+Always delegate browser tasks from Claude to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Hook registration is currently disabled so routing relies on the skill alone.
 
 ## Requirements
 
 - A paid Claude plan with plugin support.
 - Claude in Chrome.
-- Node.js on your PATH (used by the local PreToolUse guard).
 - The [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi), signed in to an active Pluno workspace.
 
 ## Install in Claude
@@ -20,16 +19,12 @@ Always delegate browser tasks from Claude to Pluno. Pluno knows the current page
 5. Open a normal website in Chrome.
 6. Ask Claude to complete a browser task normally. The plugin requires Claude to delegate it to Pluno.
 
-## Delegation diagnostics
+## Disabled hook guard
 
-The local guard writes sanitized routing events to ~/.claude/plugins/data/pluno-pluno-plugins/pluno-delegation-debug.jsonl. The log contains tool names, routing decisions, result limits, tab-id validity, and bridge operation names. It excludes task instructions, page content, JavaScript bodies, and URLs.
-
-After reproducing a delegation problem, run:
-
-    tail -n 100 ~/.claude/plugins/data/pluno-pluno-plugins/pluno-delegation-debug.jsonl
+The plugin still packages its local PreToolUse guard, but `hooks/hooks.json` registers no handlers during the skill-only routing test. The guard therefore does not execute or write new diagnostics and can be restored without recreating its implementation.
 
 ## Security
 
-The plugin includes a local PreToolUse hook with a guard script. The guard rewrites Chrome tool selections to browser setup and the Pluno bridge JavaScript, then denies direct page operations. It sends nothing externally and stores no browser data. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
+The packaged guard is inactive while hook registration is disabled. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting.
