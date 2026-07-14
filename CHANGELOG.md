@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.0.125
+## 1.0.126
 
-- Add a guarded native-browser escape route when Pluno reports an availability or billing failure during the current request.
+- Route Chrome tool selections to the Pluno bridge before direct native page tools load.
+- Recognize bridge availability and billing fallback from current Claude Code tool responses.
 
 ## 1.0.2
 
