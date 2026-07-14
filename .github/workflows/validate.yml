@@ -19,5 +19,6 @@ jobs:
       - run: node scripts/validate.mjs
       - run: npx -y @anthropic-ai/claude-code@2.1.178 plugin validate .
       - run: |
+          mkdir -p "$RUNNER_TEMP/codex-home"
           CODEX_HOME="$RUNNER_TEMP/codex-home" npx -y @openai/codex@0.142.1 plugin marketplace add .
           CODEX_HOME="$RUNNER_TEMP/codex-home" npx -y @openai/codex@0.142.1 plugin add pluno@ai-agent-plugin
