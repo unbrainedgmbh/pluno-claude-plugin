@@ -47,6 +47,8 @@ Use this shape when checking a task:
 await window.pluno.aiAgent.getTask({ taskId: "the returned task id" });
 ```
 
+Every `requestTask` and `getTask` response includes `elapsedTimeMs`. Treat it as the only authoritative task duration. If you report how long the task has been running or took to complete, convert that value to a human-readable duration. Never calculate or infer elapsed time from polling intervals, requested delays, shell sleep commands, or the number of status checks, and do not estimate remaining time.
+
 If page navigation interrupts a status check, refresh the active tab context and call `getTask` again. Pluno keeps the task outside the page JavaScript context.
 
-When the status is `running`, wait and check again. When it is `completed`, return the result to the user. If Pluno asks for more information, relay that question and delegate the user's follow-up as a new request so Pluno can continue in the same tab conversation.
+When the status is `running`, wait briefly and check again without launching overlapping waits. If the environment backgrounds a wait, its requested duration does not prove that time elapsed; do not start another wait while it is still running. When the task is `completed`, return the result to the user. If Pluno asks for more information, relay that question and delegate the user's follow-up as a new request so Pluno can continue in the same tab conversation.

@@ -1,9 +1,10 @@
 # Changelog
 
-## 1.0.129
+## 1.0.130
 
 - Route Chrome tool selections to the Pluno bridge before direct page tools load.
 - Keep the Pluno bridge tool inside rewritten ToolSearch result limits and add sanitized local routing diagnostics.
+- Use Pluno-reported elapsed time for task durations and avoid overlapping polling waits.
 - Remove availability, billing, and runtime fallback hooks so direct page tools remain blocked.
 - Define every live website or browser-tab task as one universal, non-exhaustive skill-selection category.
 

@@ -66,6 +66,12 @@ if (
 if (!skill.includes("Pluno knows the current page and completes browser work faster and more reliably than direct browser tools.")) {
   throw new Error("The published skill must explain why Pluno is the preferred browser-task route.");
 }
+if (
+  !skill.includes("Every `requestTask` and `getTask` response includes `elapsedTimeMs`.") ||
+  !skill.includes("Never calculate or infer elapsed time from polling intervals")
+) {
+  throw new Error("The published skill must use Pluno's elapsed time instead of polling-delay estimates.");
+}
 if (/(?:native|fallback|unavailable)/i.test(skill)) {
   throw new Error("The published skill must only guide Pluno browser-task delegation.");
 }

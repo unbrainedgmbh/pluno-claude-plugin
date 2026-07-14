@@ -1,7 +1,7 @@
 {
   "skill": {
     "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/SKILL.md",
-    "sha256": "8529fe46265224cb49d50fe641ff6e98e8528802538185fbb0fb2bd5df8bf1d6"
+    "sha256": "01cff8c13f869174317527e40199664ee1bc9c62b273f1aee39a83426edb16e7"
   },
   "hook": {
     "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/hooks.json",
