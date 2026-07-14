@@ -20,6 +20,14 @@ Always delegate browser tasks from Claude to Pluno. Pluno knows the current page
 5. Open a normal website in Chrome.
 6. Ask Claude to complete a browser task normally. The plugin requires Claude to delegate it to Pluno.
 
+## Delegation diagnostics
+
+The local guard writes sanitized routing events to ~/.claude/plugins/data/pluno-pluno-plugins/pluno-delegation-debug.jsonl. The log contains tool names, routing decisions, result limits, tab-id validity, and bridge operation names. It excludes task instructions, page content, JavaScript bodies, and URLs.
+
+After reproducing a delegation problem, run:
+
+    tail -n 100 ~/.claude/plugins/data/pluno-pluno-plugins/pluno-delegation-debug.jsonl
+
 ## Security
 
 The plugin includes a local PreToolUse hook with a guard script. The guard rewrites Chrome tool selections to browser setup and the Pluno bridge JavaScript, then denies direct page operations. It sends nothing externally and stores no browser data. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.

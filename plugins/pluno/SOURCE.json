@@ -9,6 +9,6 @@
   },
   "guard": {
     "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/guard-claude-in-chrome.mjs",
-    "sha256": "e9d9df3960fae30f9d6b80853656b19de5776346a3845908e5a784d022434b16"
+    "sha256": "c93ded3501e64b8864aebe38f098e21fba880eabd0d4eabcd8c7f7b31788cf2d"
   }
 }

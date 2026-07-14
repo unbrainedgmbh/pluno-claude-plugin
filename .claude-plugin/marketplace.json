@@ -5,14 +5,14 @@
     "name": "Pluno"
   },
   "description": "Handles every task involving any live website or browser tab with Pluno.",
-  "version": "1.0.128",
+  "version": "1.0.129",
   "plugins": [
     {
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
       "description": "Handles every task involving any live website or browser tab with Pluno.",
-      "version": "1.0.128",
+      "version": "1.0.129",
       "category": "productivity",
       "tags": [
         "browser",
