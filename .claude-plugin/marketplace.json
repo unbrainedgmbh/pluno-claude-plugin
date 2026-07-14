@@ -11,7 +11,7 @@
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
-      "description": "Mandatory, page-aware browser-task delegation to Pluno.",
+      "description": "Page-aware browser-task delegation to Pluno.",
       "version": "1.0.126",
       "category": "productivity",
       "tags": [
