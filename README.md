@@ -2,7 +2,7 @@
 
 # Pluno for Claude
 
-Always delegate browser tasks from Claude to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Hook registration is currently disabled so routing relies on the skill alone.
+Always delegate browser tasks from Claude to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Routing relies on the model-invoked skill alone.
 
 ## Requirements
 
@@ -19,12 +19,8 @@ Always delegate browser tasks from Claude to Pluno. Pluno knows the current page
 5. Open a normal website in Chrome.
 6. Ask Claude to complete a browser task normally. The plugin requires Claude to delegate it to Pluno.
 
-## Disabled hook guard
-
-The plugin still packages its local PreToolUse guard, but `hooks/hooks.json` registers no handlers during the skill-only routing test. The guard therefore does not execute or write new diagnostics and can be restored without recreating its implementation.
-
 ## Security
 
-The packaged guard is inactive while hook registration is disabled. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
+The plugin contains instructions and assets only; it installs no hooks or executable scripts. The Pluno Chrome extension remains responsible for authentication, tab selection, and task execution.
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting.

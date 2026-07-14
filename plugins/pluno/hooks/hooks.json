@@ -1,4 +1,0 @@
-{
-  "description": "The Pluno guard is retained but hook registration is disabled for skill-only routing tests.",
-  "hooks": {}
-}

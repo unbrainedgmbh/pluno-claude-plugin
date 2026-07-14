@@ -1,8 +1,9 @@
 # Changelog
 
-## 1.0.131
+## 1.0.132
 
-- Disable hook registration for skill-only routing performance tests while retaining the guard implementation.
+- Remove the hook and guard implementation after verifying skill-only routing in Cowork.
+- Publish the tested canonical skill definition unchanged.
 - Use Pluno-reported elapsed time for task durations and avoid overlapping polling waits.
 - Define every live website or browser-tab task as one universal, non-exhaustive skill-selection category.
 

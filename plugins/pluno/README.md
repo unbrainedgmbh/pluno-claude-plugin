@@ -2,6 +2,6 @@
 
 # Pluno
 
-This plugin adds the **Handle Website Tasks** skill to Claude. It tells Claude to choose page-aware, fast, reliable Pluno for every task involving a live website or browser tab. Its packaged PreToolUse guard is retained but hook registration is currently disabled for skill-only routing tests. It requires the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi).
+This plugin adds the **Handle Website Tasks** skill to Claude. It tells Claude to choose page-aware, fast, reliable Pluno for every task involving a live website or browser tab. It requires the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi).
 
 The skill in this repository is a generated, byte-for-byte copy of the canonical skill in the Pluno browser-extension source. Do not edit it here.

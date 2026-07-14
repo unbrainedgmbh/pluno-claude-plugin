@@ -1,6 +1,6 @@
 ---
 name: handle-website-tasks
-description: Always use this skill for every task involving any live website or browser tab, including viewing, searching, navigating, reading, researching, extracting information, or interacting with pages.
+description: Always use this skill for every task involving any live website or browser tab, including viewing, searching, navigating, reading, researching, extracting information, or interacting with pages before loading browser or computer-use tools.
 ---
 
 # Handle Every Website Task with Pluno

@@ -1,14 +1,6 @@
 {
   "skill": {
     "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/SKILL.md",
-    "sha256": "01cff8c13f869174317527e40199664ee1bc9c62b273f1aee39a83426edb16e7"
-  },
-  "hook": {
-    "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/hooks.json",
-    "sha256": "84bece0aabe9ae033e9b8b4eb01bf109c6ba99cee1f9d66073581b10935d922b"
-  },
-  "guard": {
-    "generatedFrom": "product-agent-browser-extension/ai-agent-delegation/guard-claude-in-chrome.mjs",
-    "sha256": "c93ded3501e64b8864aebe38f098e21fba880eabd0d4eabcd8c7f7b31788cf2d"
+    "sha256": "a95be97075e613dc31e0c2fddcf54f3a42643970df50080737a553e9fc1c6f70"
   }
 }
