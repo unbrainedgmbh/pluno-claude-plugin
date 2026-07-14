@@ -1,11 +1,11 @@
 # Changelog
 
-## 1.0.132
+## 1.0.133
 
-- Remove the hook and guard implementation after verifying skill-only routing in Cowork.
-- Publish the tested canonical skill definition unchanged.
+- Support both Claude and ChatGPT/Codex from one provider-neutral plugin repository.
+- Publish native Claude and Codex marketplace and plugin manifests from the canonical skill.
+- Rename the marketplace to ai-agent-plugin and document both installation paths.
 - Use Pluno-reported elapsed time for task durations and avoid overlapping polling waits.
-- Define every live website or browser-tab task as one universal, non-exhaustive skill-selection category.
 
 ## 1.0.2
 

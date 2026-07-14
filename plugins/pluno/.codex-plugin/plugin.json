@@ -1,0 +1,46 @@
+{
+  "name": "pluno",
+  "version": "1.0.133",
+  "description": "Delegates every live website and browser-tab task to Pluno.",
+  "author": {
+    "name": "Pluno",
+    "url": "https://pluno.ai"
+  },
+  "homepage": "https://pluno.ai",
+  "repository": "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin",
+  "keywords": [
+    "ai-assistant",
+    "ai-agent",
+    "plugin",
+    "browser",
+    "website",
+    "automation",
+    "research",
+    "claude",
+    "chatgpt",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Pluno",
+    "shortDescription": "Delegate browser tasks to Pluno",
+    "longDescription": "Use Pluno for every task that reads, researches, navigates, or operates a live website.",
+    "developerName": "Pluno",
+    "category": "Productivity",
+    "capabilities": [
+      "Browser automation"
+    ],
+    "websiteURL": "https://pluno.ai",
+    "privacyPolicyURL": "https://pluno.ai/privacy-policy",
+    "termsOfServiceURL": "https://pluno.ai/terms",
+    "defaultPrompt": [
+      "Use Pluno to complete this browser task.",
+      "Research this website with Pluno.",
+      "Ask Pluno to finish the task in my current tab."
+    ],
+    "brandColor": "#7C6BF2",
+    "composerIcon": "./assets/pluno-product-agent-icon.png",
+    "logo": "./assets/pluno-product-agent-icon.png",
+    "logoDark": "./assets/pluno-product-agent-icon.svg"
+  }
+}

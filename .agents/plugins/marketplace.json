@@ -1,0 +1,20 @@
+{
+  "name": "ai-agent-plugin",
+  "interface": {
+    "displayName": "AI Agent Plugin"
+  },
+  "plugins": [
+    {
+      "name": "pluno",
+      "source": {
+        "source": "local",
+        "path": "./plugins/pluno"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

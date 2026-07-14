@@ -1,23 +1,39 @@
 <p align="center"><img src="plugins/pluno/assets/pluno-product-agent-icon.svg" alt="Pluno Product Agent" width="112" height="112"></p>
 
-# Pluno for Claude
+# Pluno AI Agent Plugin
 
-Always delegate browser tasks from Claude to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Routing relies on the model-invoked skill alone.
+Always delegate browser tasks from Claude or ChatGPT/Codex to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Routing relies on the model-invoked skill alone.
 
-## Requirements
+## Common requirement
 
-- A paid Claude plan with plugin support.
-- Claude in Chrome.
-- The [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi), signed in to an active Pluno workspace.
+Install the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) and sign in to an active Pluno workspace.
 
 ## Install in Claude
 
+Claude requires a paid plan with plugin support and Claude in Chrome.
+
 1. Open **Customize → Plugins** in Claude.
 2. Select **+ → Add marketplace**.
-3. Choose **Add from a repository** and enter `https://github.com/unbrainedgmbh/pluno-claude-plugin`.
+3. Choose **Add from a repository** and enter `https://github.com/unbrainedgmbh/pluno-ai-agent-plugin`.
 4. Install **Pluno** from the marketplace.
-5. Open a normal website in Chrome.
+5. Open a normal website in the Chrome profile where Pluno is installed.
 6. Ask Claude to complete a browser task normally. The plugin requires Claude to delegate it to Pluno.
+
+## Install in ChatGPT or Codex
+
+Use Work or Codex in the ChatGPT desktop app. ChatGPT's built-in browser uses a separate profile and cannot access the Pluno Chrome extension.
+
+1. In the ChatGPT desktop app, open **Plugins**, install **Chrome**, and connect the Chrome profile where Pluno is installed.
+2. Under **Settings → Browser → Developer mode**, enable **full CDP access** so ChatGPT can execute the Pluno page bridge.
+3. Install the marketplace and Pluno plugin:
+
+   ```bash
+   codex plugin marketplace add unbrainedgmbh/pluno-ai-agent-plugin
+   codex plugin add pluno@ai-agent-plugin
+   ```
+
+4. Restart ChatGPT and start a new Work or Codex task.
+5. Open a normal website in the connected Chrome profile and ask ChatGPT to complete a browser task normally.
 
 ## Security
 

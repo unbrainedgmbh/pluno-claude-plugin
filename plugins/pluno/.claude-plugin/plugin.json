@@ -1,19 +1,24 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Handles every task involving any live website or browser tab with Pluno.",
-  "version": "1.0.132",
+  "description": "Delegates every live website and browser-tab task to Pluno.",
+  "version": "1.0.133",
   "author": {
     "name": "Pluno"
   },
   "homepage": "https://pluno.ai",
-  "repository": "https://github.com/unbrainedgmbh/pluno-claude-plugin",
+  "repository": "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin",
   "keywords": [
+    "ai-assistant",
+    "ai-agent",
+    "plugin",
     "browser",
     "website",
     "automation",
     "research",
-    "navigation"
+    "claude",
+    "chatgpt",
+    "codex"
   ],
   "skills": [
     "./skills/handle-website-tasks"
