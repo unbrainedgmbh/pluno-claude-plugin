@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.127
+## 1.0.128
 
 - Route Chrome tool selections to the Pluno bridge before direct page tools load.
 - Remove availability, billing, and runtime fallback hooks so direct page tools remain blocked.

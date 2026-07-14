@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Mandatory, page-aware browser-task delegation to Pluno.",
-  "version": "1.0.127",
+  "description": "Handles every task involving any live website or browser tab with Pluno.",
+  "version": "1.0.128",
   "author": {
     "name": "Pluno"
   },
@@ -10,8 +10,10 @@
   "repository": "https://github.com/unbrainedgmbh/pluno-claude-plugin",
   "keywords": [
     "browser",
+    "website",
     "automation",
-    "productivity"
+    "research",
+    "navigation"
   ],
   "skills": [
     "./skills/handle-website-tasks"

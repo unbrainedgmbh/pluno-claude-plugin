@@ -12,9 +12,24 @@ await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
 const hookHash = createHash("sha256").update(hook).digest("hex");
 const guardHash = createHash("sha256").update(guard).digest("hex");
+const expectedDescription = "Handles every task involving any live website or browser tab with Pluno.";
+const expectedTags = ["browser","website","automation","research","navigation"];
 
 if (marketplace.name !== "pluno-plugins" || marketplace.plugins?.[0]?.name !== "pluno") {
   throw new Error("Unexpected marketplace identity.");
+}
+if (
+  marketplace.description !== expectedDescription ||
+  marketplace.plugins[0].description !== expectedDescription ||
+  plugin.description !== expectedDescription
+) {
+  throw new Error("Marketplace descriptions must match the universal website-task skill.");
+}
+if (
+  JSON.stringify(marketplace.plugins[0].tags) !== JSON.stringify(expectedTags) ||
+  JSON.stringify(plugin.keywords) !== JSON.stringify(expectedTags)
+) {
+  throw new Error("Marketplace discovery terms must match the universal website-task skill.");
 }
 if (plugin.name !== "pluno" || plugin.version !== marketplace.version) {
   throw new Error("Plugin and marketplace versions must match.");

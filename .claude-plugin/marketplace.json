@@ -4,20 +4,22 @@
   "owner": {
     "name": "Pluno"
   },
-  "description": "Official Pluno plugins for Claude",
-  "version": "1.0.127",
+  "description": "Handles every task involving any live website or browser tab with Pluno.",
+  "version": "1.0.128",
   "plugins": [
     {
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
-      "description": "Page-aware browser-task delegation to Pluno.",
-      "version": "1.0.127",
+      "description": "Handles every task involving any live website or browser tab with Pluno.",
+      "version": "1.0.128",
       "category": "productivity",
       "tags": [
         "browser",
+        "website",
         "automation",
-        "productivity"
+        "research",
+        "navigation"
       ]
     }
   ]
