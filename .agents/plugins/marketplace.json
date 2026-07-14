@@ -1,5 +1,5 @@
 {
-  "name": "ai-agent-plugin",
+  "name": "pluno-ai-agent-plugin",
   "interface": {
     "displayName": "AI Agent Plugin"
   },

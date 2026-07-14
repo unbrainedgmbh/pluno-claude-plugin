@@ -16,8 +16,8 @@ const expectedTags = ["ai-assistant","ai-agent","plugin","browser","website","au
 const expectedRepository = "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin";
 
 if (
-  claudeMarketplace.name !== "ai-agent-plugin" ||
-  codexMarketplace.name !== "ai-agent-plugin" ||
+  claudeMarketplace.name !== "pluno-ai-agent-plugin" ||
+  codexMarketplace.name !== "pluno-ai-agent-plugin" ||
   claudeMarketplace.plugins?.[0]?.name !== "pluno" ||
   codexMarketplace.plugins?.[0]?.name !== "pluno"
 ) {

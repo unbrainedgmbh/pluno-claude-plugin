@@ -29,7 +29,7 @@ Use Work or Codex in the ChatGPT desktop app. ChatGPT's built-in browser uses a 
 
    ```bash
    codex plugin marketplace add unbrainedgmbh/pluno-ai-agent-plugin
-   codex plugin add pluno@ai-agent-plugin
+   codex plugin add pluno@pluno-ai-agent-plugin
    ```
 
 4. Restart ChatGPT and start a new Work or Codex task.

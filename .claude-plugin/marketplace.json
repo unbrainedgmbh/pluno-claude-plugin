@@ -1,18 +1,18 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "ai-agent-plugin",
+  "name": "pluno-ai-agent-plugin",
   "owner": {
     "name": "Pluno"
   },
   "description": "Delegates every live website and browser-tab task to Pluno.",
-  "version": "1.0.133",
+  "version": "1.0.134",
   "plugins": [
     {
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
       "description": "Delegates every live website and browser-tab task to Pluno.",
-      "version": "1.0.133",
+      "version": "1.0.134",
       "category": "productivity",
       "tags": [
         "ai-assistant",
