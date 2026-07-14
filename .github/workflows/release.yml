@@ -48,6 +48,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag -a "v$VERSION" -m "Pluno Claude plugin v$VERSION"
+          git tag -a "v$VERSION" -m "Pluno AI Agent Plugin v$VERSION"
           git push origin "v$VERSION"
-          gh release create "v$VERSION" --title "Pluno Claude plugin v$VERSION" --generate-notes
+          gh release create "v$VERSION" --title "Pluno AI Agent Plugin v$VERSION" --generate-notes
