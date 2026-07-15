@@ -1,10 +1,11 @@
 # Changelog
 
-## 1.0.134
+## 1.0.135
 
 - Support both Claude and ChatGPT/Codex from one provider-neutral plugin repository.
 - Publish native Claude and Codex marketplace and plugin manifests from the canonical skill.
 - Rename the marketplace to pluno-ai-agent-plugin and document both installation paths.
+- Execute the Pluno bridge in the page's MAIN world and fail closed instead of probing it through isolated Playwright evaluation.
 - Use Pluno-reported elapsed time for task durations and avoid overlapping polling waits.
 
 ## 1.0.2

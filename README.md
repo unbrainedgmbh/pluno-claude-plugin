@@ -6,7 +6,7 @@ Always delegate browser tasks from Claude or ChatGPT/Codex to Pluno. Pluno knows
 
 ## Common requirement
 
-Install the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) and sign in to your Pluno workspace.
+Install the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) and sign in to an active Pluno workspace.
 
 ## Install in Claude
 
@@ -34,6 +34,7 @@ Use Work or Codex in the ChatGPT desktop app. ChatGPT's built-in browser uses a 
 
 4. Restart ChatGPT and start a new Work or Codex task.
 5. Open a normal website in the connected Chrome profile and ask ChatGPT to complete a browser task normally.
+6. When asked, approve full CDP access for that website. A managed workspace policy may disable this setting.
 
 ## Security
 

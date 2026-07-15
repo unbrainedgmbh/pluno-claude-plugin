@@ -8,6 +8,7 @@ const claudePlugin = JSON.parse(await readFile("plugins/pluno/.claude-plugin/plu
 const codexPlugin = JSON.parse(await readFile("plugins/pluno/.codex-plugin/plugin.json", "utf8"));
 const source = JSON.parse(await readFile("plugins/pluno/SOURCE.json", "utf8"));
 const skill = await readFile("plugins/pluno/skills/handle-website-tasks/SKILL.md", "utf8");
+const readme = await readFile("README.md", "utf8");
 const releaseWorkflow = await readFile(".github/workflows/release.yml", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
@@ -15,6 +16,7 @@ const skillHash = createHash("sha256").update(skill).digest("hex");
 const expectedDescription = "Delegates every live website and browser-tab task to Pluno.";
 const expectedTags = ["ai-assistant","ai-agent","plugin","browser","website","automation","research","claude","chatgpt","codex"];
 const expectedRepository = "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin";
+const requiredBridgeTransportInstructions = ["tab.capabilities.get(\"cdp\")","\"Runtime.evaluate\"","awaitPromise: true","returnByValue: true","JSON.stringify(input)","exceptionDetails","response.result.value","default MAIN world","does not expose the `cdp` capability","Never use `tab.playwright.evaluate`","Do not continue with direct browser tools"];
 
 if (
   claudeMarketplace.name !== "pluno-ai-agent-plugin" ||
@@ -49,6 +51,13 @@ if (
 }
 if (claudePlugin.repository !== expectedRepository || codexPlugin.repository !== expectedRepository) {
   throw new Error("Plugin repository URLs must use the provider-neutral repository name.");
+}
+if (
+  !readme.includes("enable **full CDP access**") ||
+  !readme.includes("approve full CDP access for that website") ||
+  !readme.includes("managed workspace policy")
+) {
+  throw new Error("ChatGPT installation instructions must cover full CDP access, site approval, and managed policy.");
 }
 if (
   !releaseWorkflow.includes('git tag -a "v$VERSION" -m "Pluno AI Agent Plugin v$VERSION"') ||
@@ -114,8 +123,11 @@ if (
 ) {
   throw new Error("The published skill must use Pluno's elapsed time instead of polling-delay estimates.");
 }
-if (/\b(?:native|fallback|unavailable)\b/i.test(skill)) {
-  throw new Error("The published skill must only guide Pluno browser-task delegation.");
+if (requiredBridgeTransportInstructions.some((snippet) => !skill.includes(snippet))) {
+  throw new Error("The published skill must use the supported MAIN-world CDP transport and fail closed.");
+}
+if (/tab\.playwright\.evaluate\s*\(/.test(skill)) {
+  throw new Error("The published skill must never execute the Pluno bridge through isolated Playwright evaluation.");
 }
 if (/\b(?:anthropic|chatgpt|claude|codex|openai)\b/i.test(skill)) {
   throw new Error("The published skill must stay provider-neutral.");
