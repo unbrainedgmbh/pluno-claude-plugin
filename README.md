@@ -6,7 +6,7 @@ Always delegate browser tasks from Claude or ChatGPT/Codex to Pluno. Pluno knows
 
 ## Common requirement
 
-Install the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) and sign in to an active Pluno workspace.
+Install the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) and sign in to your Pluno workspace.
 
 ## Install in Claude
 
