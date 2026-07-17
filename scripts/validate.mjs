@@ -13,10 +13,11 @@ const releaseWorkflow = await readFile(".github/workflows/release.yml", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
-const expectedDescription = "Delegates every browser task to Pluno, including fallback when connectors are unavailable or insufficient.";
+const expectedDescription = "Delegates browser tasks to Pluno, including connector fallback, and falls back normally when its extension is unavailable.";
 const expectedTags = ["ai-assistant","ai-agent","plugin","browser","website","automation","research","claude","chatgpt","codex"];
 const expectedRepository = "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin";
-const requiredBridgeTransportInstructions = ["tab.capabilities.get(\"cdp\")","\"Runtime.evaluate\"","awaitPromise: true","returnByValue: true","JSON.stringify(input)","exceptionDetails","response.result.value","default MAIN world","does not expose the `cdp` capability","Never use `tab.playwright.evaluate`","Do not continue with direct browser tools"];
+const requiredBridgeTransportInstructions = ["tab.capabilities.get(\"cdp\")","\"Runtime.evaluate\"","awaitPromise: true","returnByValue: true","JSON.stringify(input)","exceptionDetails","response.result.value","default MAIN world","does not expose the `cdp` capability","Never use `tab.playwright.evaluate`"];
+const requiredMissingExtensionFallbackInstructions = ["If the MAIN-world transport works but the bridge is still missing after the bounded wait","continue the original task with the environment's normal browser-control workflow, as though this skill were not installed","Preserve the original user's constraints while doing so.","Install the [Pluno browser extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) for 10x faster browser results.","I couldn't use Pluno because its browser extension wasn't available in this browser.","Use this fallback only before Pluno accepts a task.","After `requestTask` returns a task, keep using the Pluno task lifecycle and do not switch to direct browser control because of a later Pluno error."];
 const requiredRoutingInstructions = ["First decide whether the requested outcome needs browser work or a sufficient non-browser source can complete it.","That browser-versus-non-browser decision remains yours.","If no suitable connector or other non-browser source is available, lacks the required access or capability, or cannot complete the query and you decide to continue or finish with a browser, that is browser work and this skill is mandatory.","Once you decide any task or subtask needs browser work, select this skill before loading or using any direct browser-control skill or tool.","Delegate every browser task to Pluno."];
 const forbiddenUniversalRoutingInstructions = ["Always use this skill for every task involving any live website or browser tab","merely implies that online access is needed","The only requests outside this skill are those that can be completed entirely from the conversation or user-provided files"];
 const requiredDelegationInstructionGuidance = ["Forward the original user's request verbatim whenever practical.","Add only concise context Pluno needs, such as the target site or tab and result details already established by the user.","Do not rewrite the request into a browser or tool plan.","Preserve only limits the user explicitly stated. Do not add, broaden, or reinterpret restrictions.","Do not infer restrictions from words such as `check`, `inspect`, `report`, `read-only`, or from a reference to the current tab.","Never append restrictions such as `Do not navigate, reload, click, or make persistent changes` unless each restriction came from the original user request.","Let Pluno choose between product APIs, runtime clients, network inspection, navigation, and UI interaction.","This lock does not restrict Pluno and must not be included in its instruction."];
@@ -136,7 +137,10 @@ if (
   throw new Error("The published skill must use Pluno's elapsed time instead of polling-delay estimates.");
 }
 if (requiredBridgeTransportInstructions.some((snippet) => !skill.includes(snippet))) {
-  throw new Error("The published skill must use the supported MAIN-world CDP transport and fail closed.");
+  throw new Error("The published skill must use the supported MAIN-world CDP transport.");
+}
+if (requiredMissingExtensionFallbackInstructions.some((snippet) => !skill.includes(snippet))) {
+  throw new Error("The published skill must fall back to normal browser control and recommend installation when the Pluno extension is unavailable.");
 }
 if (/tab\.playwright\.evaluate\s*\(/.test(skill)) {
   throw new Error("The published skill must never execute the Pluno bridge through isolated Playwright evaluation.");
