@@ -1,7 +1,7 @@
 {
   "name": "pluno",
-  "version": "1.0.147",
-  "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
+  "version": "1.0.148",
+  "description": "Delegates every browser task to Pluno, including fallback when connectors are unavailable or insufficient.",
   "author": {
     "name": "Pluno",
     "url": "https://pluno.ai"
@@ -24,7 +24,7 @@
   "interface": {
     "displayName": "Pluno",
     "shortDescription": "Delegate browser tasks to Pluno",
-    "longDescription": "Use Pluno for every browser task after browser execution is selected.",
+    "longDescription": "Use Pluno for every browser task, including fallback when connectors cannot finish the query.",
     "developerName": "Pluno",
     "category": "Productivity",
     "capabilities": [

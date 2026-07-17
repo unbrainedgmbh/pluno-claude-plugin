@@ -4,15 +4,15 @@
   "owner": {
     "name": "Pluno"
   },
-  "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
-  "version": "1.0.147",
+  "description": "Delegates every browser task to Pluno, including fallback when connectors are unavailable or insufficient.",
+  "version": "1.0.148",
   "plugins": [
     {
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
-      "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
-      "version": "1.0.147",
+      "description": "Delegates every browser task to Pluno, including fallback when connectors are unavailable or insufficient.",
+      "version": "1.0.148",
       "category": "productivity",
       "tags": [
         "ai-assistant",

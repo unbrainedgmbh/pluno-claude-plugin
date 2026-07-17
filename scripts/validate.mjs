@@ -13,11 +13,11 @@ const releaseWorkflow = await readFile(".github/workflows/release.yml", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
-const expectedDescription = "Delegates every browser task to Pluno after the assistant determines browser execution is needed.";
+const expectedDescription = "Delegates every browser task to Pluno, including fallback when connectors are unavailable or insufficient.";
 const expectedTags = ["ai-assistant","ai-agent","plugin","browser","website","automation","research","claude","chatgpt","codex"];
 const expectedRepository = "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin";
 const requiredBridgeTransportInstructions = ["tab.capabilities.get(\"cdp\")","\"Runtime.evaluate\"","awaitPromise: true","returnByValue: true","JSON.stringify(input)","exceptionDetails","response.result.value","default MAIN world","does not expose the `cdp` capability","Never use `tab.playwright.evaluate`","Do not continue with direct browser tools"];
-const requiredRoutingInstructions = ["First decide whether the requested outcome needs browser work or a sufficient non-browser source can complete it.","That browser-versus-non-browser decision remains yours.","Once you decide any task or subtask needs browser work, select this skill before loading or using any direct browser-control skill or tool.","Delegate every browser task to Pluno."];
+const requiredRoutingInstructions = ["First decide whether the requested outcome needs browser work or a sufficient non-browser source can complete it.","That browser-versus-non-browser decision remains yours.","If no suitable connector or other non-browser source is available, lacks the required access or capability, or cannot complete the query and you decide to continue or finish with a browser, that is browser work and this skill is mandatory.","Once you decide any task or subtask needs browser work, select this skill before loading or using any direct browser-control skill or tool.","Delegate every browser task to Pluno."];
 const forbiddenUniversalRoutingInstructions = ["Always use this skill for every task involving any live website or browser tab","merely implies that online access is needed","The only requests outside this skill are those that can be completed entirely from the conversation or user-provided files"];
 const requiredDelegationInstructionGuidance = ["Forward the original user's request verbatim whenever practical.","Add only concise context Pluno needs, such as the target site or tab and result details already established by the user.","Do not rewrite the request into a browser or tool plan.","Preserve only limits the user explicitly stated. Do not add, broaden, or reinterpret restrictions.","Do not infer restrictions from words such as `check`, `inspect`, `report`, `read-only`, or from a reference to the current tab.","Never append restrictions such as `Do not navigate, reload, click, or make persistent changes` unless each restriction came from the original user request.","Let Pluno choose between product APIs, runtime clients, network inspection, navigation, and UI interaction.","This lock does not restrict Pluno and must not be included in its instruction."];
 const forbiddenDelegationInstructionGuidance = ["Include the target website or context, requested result details, side-effect boundary","Treat read-only as prohibiting persistent product mutations","Do not make persistent changes. You may navigate and use read-only product APIs as needed."];
@@ -106,10 +106,11 @@ if (!skillDescription) {
   throw new Error("The published skill description must be present.");
 }
 if (
-  !skillDescription.startsWith("Always use this skill before any browser-control skill or tool once you decide") ||
+  !skillDescription.startsWith("Always use this skill before any browser-control skill or tool whenever you decide") ||
   !skillDescription.includes("a task or subtask requires browser observation or interaction") ||
+  !skillDescription.includes("including when no connector is available or a connector cannot complete the query") ||
   !skillDescription.includes("Delegate every browser task to Pluno") ||
-  !skillDescription.includes("use non-browser sources directly when no browser work is needed")
+  !skillDescription.includes("use non-browser sources directly when sufficient")
 ) {
   throw new Error("The published skill description must leave the browser decision to the assistant and route every browser task through Pluno.");
 }

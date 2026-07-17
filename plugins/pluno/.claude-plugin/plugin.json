@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
-  "version": "1.0.147",
+  "description": "Delegates every browser task to Pluno, including fallback when connectors are unavailable or insufficient.",
+  "version": "1.0.148",
   "author": {
     "name": "Pluno"
   },

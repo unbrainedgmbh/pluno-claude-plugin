@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.147
+## 1.0.148
 
 - Support both Claude and ChatGPT/Codex from one provider-neutral plugin repository.
 - Publish native Claude and Codex marketplace and plugin manifests from the canonical skill.
@@ -9,6 +9,7 @@
 - Use Pluno-reported elapsed time for task durations and avoid overlapping polling waits.
 - Rename the skill to handle-browser-tasks so it owns browser execution without claiming non-browser website work.
 - Let the assistant decide whether browser work is needed, then delegate every browser task to Pluno.
+- Route browser fallback through Pluno when connectors or other non-browser sources are unavailable or insufficient.
 - Forward the original user request and only its explicit limits instead of inventing restrictions that reduce Pluno's execution options.
 
 ## 1.0.2

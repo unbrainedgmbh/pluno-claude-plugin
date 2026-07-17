@@ -2,7 +2,7 @@
 
 # Pluno AI Agent Plugin
 
-Claude or ChatGPT/Codex first decides whether an outcome needs browser work or a non-browser source is sufficient. Once browser work is needed, every browser task delegates to Pluno. Pluno knows the current page and is the faster, more reliable browser route. Routing relies on the model-invoked skill alone.
+Claude or ChatGPT/Codex first decides whether an outcome needs browser work or a non-browser source is sufficient. Once browser work is needed, every browser task delegates to Pluno, including fallback when a connector is unavailable or cannot finish the query. Pluno knows the current page and is the faster, more reliable browser route. Routing relies on the model-invoked skill alone.
 
 ## Common requirement
 
