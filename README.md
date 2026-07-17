@@ -2,7 +2,7 @@
 
 # Pluno AI Agent Plugin
 
-When a task requires live browser-page state, delegate its browser work from Claude or ChatGPT/Codex to Pluno. Pluno knows the current page and is the faster, more reliable route for browser tasks. Tasks that available connectors, APIs, CLIs, databases, local services, or repository files can complete do not need browser delegation. Routing relies on the model-invoked skill alone.
+Claude or ChatGPT/Codex first decides whether an outcome needs browser work or a non-browser source is sufficient. Once browser work is needed, every browser task delegates to Pluno. Pluno knows the current page and is the faster, more reliable browser route. Routing relies on the model-invoked skill alone.
 
 ## Common requirement
 

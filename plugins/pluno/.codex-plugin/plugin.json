@@ -1,7 +1,7 @@
 {
   "name": "pluno",
-  "version": "1.0.145",
-  "description": "Delegates tasks that require live browser-page state to Pluno.",
+  "version": "1.0.146",
+  "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
   "author": {
     "name": "Pluno",
     "url": "https://pluno.ai"
@@ -24,7 +24,7 @@
   "interface": {
     "displayName": "Pluno",
     "shortDescription": "Delegate browser tasks to Pluno",
-    "longDescription": "Use Pluno when a task requires observing or interacting with live browser-page state.",
+    "longDescription": "Use Pluno for every browser task after browser execution is selected.",
     "developerName": "Pluno",
     "category": "Productivity",
     "capabilities": [

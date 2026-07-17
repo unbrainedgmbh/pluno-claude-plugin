@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Delegates tasks that require live browser-page state to Pluno.",
-  "version": "1.0.145",
+  "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
+  "version": "1.0.146",
   "author": {
     "name": "Pluno"
   },
@@ -21,6 +21,6 @@
     "codex"
   ],
   "skills": [
-    "./skills/handle-website-tasks"
+    "./skills/handle-browser-tasks"
   ]
 }
