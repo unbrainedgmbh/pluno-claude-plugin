@@ -17,7 +17,7 @@ const expectedDescription = "Delegates tasks that require live browser-page stat
 const expectedTags = ["ai-assistant","ai-agent","plugin","browser","website","automation","research","claude","chatgpt","codex"];
 const expectedRepository = "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin";
 const requiredBridgeTransportInstructions = ["tab.capabilities.get(\"cdp\")","\"Runtime.evaluate\"","awaitPromise: true","returnByValue: true","JSON.stringify(input)","exceptionDetails","response.result.value","default MAIN world","does not expose the `cdp` capability","Never use `tab.playwright.evaluate`","Do not continue with direct browser tools"];
-const requiredRoutingInstructions = ["First decide whether an available non-browser source can complete the requested outcome without accessing a live browser page.","Prefer a purpose-built connector, API, CLI, database, local service endpoint, or repository file when it is sufficient.","Once browser work is required, use Pluno for that browser work and fail closed if the bridge is unavailable."];
+const requiredRoutingInstructions = ["First decide whether an available non-browser source can complete the requested outcome without accessing a live browser page.","Prefer a purpose-built connector, API, CLI, database, local service endpoint, or repository file when it is sufficient.","Select this skill before loading or using any direct browser-control skill or tool.","Once browser work is required, use Pluno for that browser work and fail closed if the bridge is unavailable."];
 const forbiddenUniversalRoutingInstructions = ["Always use this skill for every task involving any live website or browser tab","merely implies that online access is needed","The only requests outside this skill are those that can be completed entirely from the conversation or user-provided files"];
 const requiredDelegationInstructionGuidance = ["Delegate the user's outcome, not a browser or tool plan.","Include the target website or context, requested result details, side-effect boundary, and only operational restrictions the user explicitly requested.","Do not invent restrictions on navigation, reloads, links, tabs, page-state changes, network inspection, or API use.","Treat read-only as prohibiting persistent product mutations, not navigation, filtering, page inspection, or read-only product API calls.","Treat a named current tab as the starting context, not a frozen page.","Let Pluno choose between product APIs, runtime clients, network inspection, navigation, and UI interaction.","This lock does not restrict Pluno and must not be included in its instruction."];
 
@@ -105,12 +105,12 @@ if (!skillDescription) {
   throw new Error("The published skill description must be present.");
 }
 if (
-  !skillDescription.includes("requires observing or interacting with live page state in a browser tab") ||
-  !skillDescription.includes("Do not use it when available non-browser sources") ||
-  !skillDescription.includes("connectors, APIs, CLIs, databases, local service endpoints, or repository files") ||
-  !skillDescription.includes("the user did not explicitly ask to use the current tab or website UI")
+  !skillDescription.startsWith("Always use this skill before any browser-control skill or tool") ||
+  !skillDescription.includes("when a request needs live page state or names a current tab/site UI") ||
+  !skillDescription.includes("Skip it only when a connector, API, CLI, database, local endpoint, or repository file is sufficient") ||
+  !skillDescription.includes("no browser was requested")
 ) {
-  throw new Error("The published skill description is missing its live-browser routing boundary or non-browser exclusions.");
+  throw new Error("The published skill description must prioritize Pluno over browser-control tools while preserving non-browser exclusions.");
 }
 if (requiredRoutingInstructions.some((snippet) => !skill.includes(snippet))) {
   throw new Error("The published skill must prefer sufficient non-browser sources before requiring Pluno for browser work.");
