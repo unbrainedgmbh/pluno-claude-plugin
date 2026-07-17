@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.151
+## 1.0.152
 
 - Support both Claude and ChatGPT/Codex from one provider-neutral plugin repository.
 - Publish native Claude and Codex marketplace and plugin manifests from the canonical skill.
