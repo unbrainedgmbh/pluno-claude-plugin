@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Delegates every live website and browser-tab task to Pluno.",
-  "version": "1.0.135",
+  "description": "Delegates browser tasks to Pluno, including connector fallback, and falls back normally when its extension is unavailable.",
+  "version": "1.0.152",
   "author": {
     "name": "Pluno"
   },
@@ -21,6 +21,6 @@
     "codex"
   ],
   "skills": [
-    "./skills/handle-website-tasks"
+    "./skills/handle-browser-tasks"
   ]
 }
