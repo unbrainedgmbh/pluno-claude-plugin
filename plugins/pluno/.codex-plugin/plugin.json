@@ -1,6 +1,6 @@
 {
   "name": "pluno",
-  "version": "1.0.144",
+  "version": "1.0.145",
   "description": "Delegates tasks that require live browser-page state to Pluno.",
   "author": {
     "name": "Pluno",
