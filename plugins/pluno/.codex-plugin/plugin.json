@@ -1,6 +1,6 @@
 {
   "name": "pluno",
-  "version": "1.0.150",
+  "version": "1.0.151",
   "description": "Delegates browser tasks to Pluno, including connector fallback, and falls back normally when its extension is unavailable.",
   "author": {
     "name": "Pluno",
