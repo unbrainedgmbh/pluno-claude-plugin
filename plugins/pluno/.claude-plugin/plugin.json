@@ -1,8 +1,8 @@
 {
   "name": "pluno",
   "displayName": "Pluno",
-  "description": "Delegates every live website and browser-tab task to Pluno.",
-  "version": "1.0.135",
+  "description": "Delegates tasks that require live browser-page state to Pluno.",
+  "version": "1.0.144",
   "author": {
     "name": "Pluno"
   },

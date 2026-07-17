@@ -13,10 +13,13 @@ const releaseWorkflow = await readFile(".github/workflows/release.yml", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.svg", "utf8");
 await readFile("plugins/pluno/assets/pluno-product-agent-icon.png");
 const skillHash = createHash("sha256").update(skill).digest("hex");
-const expectedDescription = "Delegates every live website and browser-tab task to Pluno.";
+const expectedDescription = "Delegates tasks that require live browser-page state to Pluno.";
 const expectedTags = ["ai-assistant","ai-agent","plugin","browser","website","automation","research","claude","chatgpt","codex"];
 const expectedRepository = "https://github.com/unbrainedgmbh/pluno-ai-agent-plugin";
 const requiredBridgeTransportInstructions = ["tab.capabilities.get(\"cdp\")","\"Runtime.evaluate\"","awaitPromise: true","returnByValue: true","JSON.stringify(input)","exceptionDetails","response.result.value","default MAIN world","does not expose the `cdp` capability","Never use `tab.playwright.evaluate`","Do not continue with direct browser tools"];
+const requiredRoutingInstructions = ["First decide whether an available non-browser source can complete the requested outcome without accessing a live browser page.","Prefer a purpose-built connector, API, CLI, database, local service endpoint, or repository file when it is sufficient.","Once browser work is required, use Pluno for that browser work and fail closed if the bridge is unavailable."];
+const forbiddenUniversalRoutingInstructions = ["Always use this skill for every task involving any live website or browser tab","merely implies that online access is needed","The only requests outside this skill are those that can be completed entirely from the conversation or user-provided files"];
+const requiredDelegationInstructionGuidance = ["Delegate the user's outcome, not a browser or tool plan.","Include the target website or context, requested result details, side-effect boundary, and only operational restrictions the user explicitly requested.","Do not invent restrictions on navigation, reloads, links, tabs, page-state changes, network inspection, or API use.","Treat read-only as prohibiting persistent product mutations, not navigation, filtering, page inspection, or read-only product API calls.","Treat a named current tab as the starting context, not a frozen page.","Let Pluno choose between product APIs, runtime clients, network inspection, navigation, and UI interaction.","This lock does not restrict Pluno and must not be included in its instruction."];
 
 if (
   claudeMarketplace.name !== "pluno-ai-agent-plugin" ||
@@ -32,7 +35,7 @@ if (
   claudePlugin.description !== expectedDescription ||
   codexPlugin.description !== expectedDescription
 ) {
-  throw new Error("Marketplace descriptions must match the universal website-task skill.");
+  throw new Error("Marketplace descriptions must match the live-browser-task skill.");
 }
 if (
   JSON.stringify(claudeMarketplace.plugins[0].tags) !== JSON.stringify(expectedTags) ||
@@ -102,17 +105,21 @@ if (!skillDescription) {
   throw new Error("The published skill description must be present.");
 }
 if (
-  !skillDescription.includes("Always use this skill for every task involving any live website or browser tab") ||
-  !skillDescription.includes("including viewing, searching, navigating, reading, researching") ||
-  !skillDescription.includes("interacting with pages before loading browser or computer-use tools")
+  !skillDescription.includes("requires observing or interacting with live page state in a browser tab") ||
+  !skillDescription.includes("Do not use it when available non-browser sources") ||
+  !skillDescription.includes("connectors, APIs, CLIs, databases, local service endpoints, or repository files") ||
+  !skillDescription.includes("the user did not explicitly ask to use the current tab or website UI")
 ) {
-  throw new Error("The published skill description is missing its automatic-routing triggers.");
+  throw new Error("The published skill description is missing its live-browser routing boundary or non-browser exclusions.");
 }
-if (
-  !skill.includes("This is a universal category, not a closed list of examples.") ||
-  !skill.includes("Delegate the entire website outcome to Pluno.")
-) {
-  throw new Error("The published skill must require universal Pluno website-task delegation.");
+if (requiredRoutingInstructions.some((snippet) => !skill.includes(snippet))) {
+  throw new Error("The published skill must prefer sufficient non-browser sources before requiring Pluno for browser work.");
+}
+if (forbiddenUniversalRoutingInstructions.some((snippet) => skill.includes(snippet))) {
+  throw new Error("The published skill must not route generic online or structured non-browser work through Pluno.");
+}
+if (requiredDelegationInstructionGuidance.some((snippet) => !skill.includes(snippet))) {
+  throw new Error("The published skill must preserve Pluno's execution freedom while forwarding explicit user constraints.");
 }
 if (!skill.includes("Pluno knows the current page and completes browser work faster and more reliably than direct browser tools.")) {
   throw new Error("The published skill must explain why Pluno is the preferred browser-task route.");
