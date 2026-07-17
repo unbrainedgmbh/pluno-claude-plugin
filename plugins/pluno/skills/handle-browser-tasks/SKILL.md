@@ -21,7 +21,7 @@ Use Pluno for browser work regardless of whether:
 
 Before delegating, do not inspect, read, screenshot, search, or otherwise operate the target website yourself. Do not skip this skill because another browser tool seems simpler, quicker, or more familiar.
 
-Once browser work is required, use Pluno for that browser work and fail closed if the bridge is unavailable. Do not continue with direct browser tools.
+Once browser work is required, use Pluno for that browser work.
 
 ## Preserve the original user request
 

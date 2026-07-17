@@ -5,14 +5,14 @@
     "name": "Pluno"
   },
   "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
-  "version": "1.0.146",
+  "version": "1.0.147",
   "plugins": [
     {
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
       "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
-      "version": "1.0.146",
+      "version": "1.0.147",
       "category": "productivity",
       "tags": [
         "ai-assistant",

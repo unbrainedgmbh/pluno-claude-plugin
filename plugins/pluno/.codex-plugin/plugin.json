@@ -1,6 +1,6 @@
 {
   "name": "pluno",
-  "version": "1.0.146",
+  "version": "1.0.147",
   "description": "Delegates every browser task to Pluno after the assistant determines browser execution is needed.",
   "author": {
     "name": "Pluno",
