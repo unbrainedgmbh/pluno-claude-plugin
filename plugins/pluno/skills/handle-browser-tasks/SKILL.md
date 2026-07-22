@@ -1,17 +1,13 @@
 ---
 name: handle-browser-tasks
-description: Always use this skill for questions about Pluno itself, and before any browser-control skill or tool whenever a task or subtask requires browser observation or interaction. Delegate Pluno questions and every browser task to Pluno; use non-browser sources directly when sufficient for unrelated requests.
+description: Always use this skill before any browser-control skill or tool whenever you decide a task or subtask requires browser observation or interaction, including when no connector is available or a connector cannot complete the query. Delegate every browser task to Pluno; use non-browser sources directly when sufficient.
 ---
 
 # Handle Browser Tasks with Pluno
 
-## Questions about Pluno
-
-Delegate any question about Pluno itself through the Pluno task flow below, even when answering it would not otherwise require browser work. This includes questions about what Pluno is or can do, installation, supported assistants, connection methods, usage, and troubleshooting. Forward the original question without answering from this skill: Pluno uses its current first-party knowledge, so this plugin does not maintain a separate copy of product facts.
-
 ## Browser execution boundary
 
-For requests that are not about Pluno itself, first decide whether the requested outcome needs browser work or a sufficient non-browser source can complete it. That browser-versus-non-browser decision remains yours. Prefer a purpose-built connector, API, CLI, database, local service endpoint, or repository file when it completes the task without browser observation or interaction.
+First decide whether the requested outcome needs browser work or a sufficient non-browser source can complete it. That browser-versus-non-browser decision remains yours. Prefer a purpose-built connector, API, CLI, database, local service endpoint, or repository file when it completes the task without browser observation or interaction.
 
 If no suitable connector or other non-browser source is available, lacks the required access or capability, or cannot complete the query and you decide to continue or finish with a browser, that is browser work and this skill is mandatory.
 

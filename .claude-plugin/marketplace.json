@@ -4,15 +4,15 @@
   "owner": {
     "name": "Pluno"
   },
-  "description": "Answers questions about Pluno and delegates browser tasks to it, including connector fallback.",
-  "version": "1.0.169",
+  "description": "Delegates browser tasks to Pluno, including connector fallback, and falls back normally when its extension is unavailable.",
+  "version": "1.0.152",
   "plugins": [
     {
       "name": "pluno",
       "displayName": "Pluno",
       "source": "./plugins/pluno",
-      "description": "Answers questions about Pluno and delegates browser tasks to it, including connector fallback.",
-      "version": "1.0.169",
+      "description": "Delegates browser tasks to Pluno, including connector fallback, and falls back normally when its extension is unavailable.",
+      "version": "1.0.152",
       "category": "productivity",
       "tags": [
         "ai-assistant",

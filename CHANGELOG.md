@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.169
+## 1.0.152
 
 - Support both Claude and ChatGPT/Codex from one provider-neutral plugin repository.
 - Publish native Claude and Codex marketplace and plugin manifests from the canonical skill.
@@ -12,7 +12,6 @@
 - Route browser fallback through Pluno when connectors or other non-browser sources are unavailable or insufficient.
 - Forward the original user request and only its explicit limits instead of inventing restrictions that reduce Pluno's execution options.
 - Complete tasks with normal browser control and recommend installation when the Pluno browser extension is unavailable.
-- Delegate questions about Pluno so answers use current first-party knowledge instead of maintained plugin documentation.
 
 ## 1.0.2
 
