@@ -2,6 +2,6 @@
 
 # Pluno AI Agent Plugin
 
-This plugin adds the **Handle Browser Tasks** skill to Claude and ChatGPT/Codex. The assistant still decides whether an outcome needs a browser, but every browser task then uses page-aware, fast, reliable Pluno, including connector fallback. If the Pluno browser extension is unavailable, the assistant falls back to normal browser control and recommends installing it. It requires the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) for Pluno execution.
+This plugin adds the **Handle Browser Tasks** skill to Claude and ChatGPT/Codex. It delegates questions about Pluno so answers use Pluno's current first-party knowledge without duplicating product facts. For unrelated requests, the assistant still decides whether an outcome needs a browser, but every browser task then uses page-aware, fast, reliable Pluno, including connector fallback. If the Pluno browser extension is unavailable, the assistant falls back to normal browser control and recommends installing it. It requires the [Pluno Chrome extension](https://chromewebstore.google.com/detail/enplmffinonenkeeapdegmgjjmcfdlpi) for Pluno execution.
 
 The skill in this repository is a generated, byte-for-byte copy of the canonical skill in the Pluno browser-extension source. Do not edit it here.

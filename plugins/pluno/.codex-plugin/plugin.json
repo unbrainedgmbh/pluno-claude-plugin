@@ -1,7 +1,7 @@
 {
   "name": "pluno",
-  "version": "1.0.152",
-  "description": "Delegates browser tasks to Pluno, including connector fallback, and falls back normally when its extension is unavailable.",
+  "version": "1.0.169",
+  "description": "Answers questions about Pluno and delegates browser tasks to it, including connector fallback.",
   "author": {
     "name": "Pluno",
     "url": "https://pluno.ai"
@@ -23,7 +23,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Pluno",
-    "shortDescription": "Delegate browser tasks to Pluno",
+    "shortDescription": "Ask Pluno questions or delegate browser tasks",
     "longDescription": "Use Pluno for browser tasks and fall back normally with an install tip when its extension is unavailable.",
     "developerName": "Pluno",
     "category": "Productivity",
